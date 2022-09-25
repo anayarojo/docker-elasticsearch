@@ -11,9 +11,23 @@ services:
     environment:
       discovery.type: single-node
     volumes:
-      - ./storage/single/elasticsearch:/usr/share/elasticsearch/data
+      - ./storage/single/elastic:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
+    networks:
+      - elastic-net
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.5
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ./storage/single/kibana:/usr/share/kibana/data
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
     networks:
       - elastic-net
