@@ -1,6 +1,6 @@
 # Docker Elasticsearch
 
-### Get started
+## Get started
 
 Initialize single node elasticsearch docker container
 ```bash
@@ -12,7 +12,12 @@ Initialize basic elasticsearch and kibana docker containers
 docker compose -f docker-compose.basic.yaml up --build
 ```
 
-### Useful request queries
+Initialize elasticsearch cluster and kibana docker containers
+```bash
+docker compose -f docker-compose.cluster.yaml up --build
+```
+
+## Useful request queries
 
 Elasticsearch status API
 
@@ -101,24 +106,23 @@ curl -X POST 'http://elastic:secret@localhost:9200/twitter/tweet/_search?pretty'
 } '
 ```
 
-Documentation: 
+## Links
 
-### Links
+|Configuration|Container|Credentials|
+|---|---|---|
+|Single|[Elasticsearch](http://localhost:9200)<br/>[Kibana](http://localhost:5601)|None|
+|Basic|[Elasticsearch](http://elastic:secret@localhost:9200)<br/>[Kibana](http://localhost:5601)|user: elastic <br/> password: secret|
+|Cluster|[Elasticsearch](https://elastic:secret@localhost:9200)<br/>[Kibana](https://localhost:5601)|user: elastic<br/>password: secret<br/><br/>user: kibana_system<br/>password: secret|
 
-#### Elasticsearch
-
-http://localhost:9200
-
-http://elastic:secret@localhost:9200
-
-#### Kibana
-
-http://localhost:5601
 
 
 ### Documentation
 
+#### 8.4
+
 https://www.elastic.co/guide/en/elasticsearch/reference/8.4/docker.html
 
 https://www.elastic.co/guide/en/kibana/8.4/docker.html
+
+#### 7.17
 
