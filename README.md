@@ -112,9 +112,7 @@ curl -X POST 'http://elastic:secret@localhost:9200/twitter/tweet/_search?pretty'
 |---|---|---|
 |Single|[Elasticsearch](http://localhost:9200)<br/>[Kibana](http://localhost:5601)|None|
 |Basic|[Elasticsearch](http://elastic:secret@localhost:9200)<br/>[Kibana](http://localhost:5601)|user: elastic <br/> password: secret|
-|Cluster|[Elasticsearch](https://elastic:secret@localhost:9200)<br/>[Kibana](https://localhost:5601)|user: elastic<br/>password: secret<br/><br/>user: kibana_system<br/>password: secret|
-
-
+|Cluster|[Elasticsearch](https://elastic:secret@localhost:9200)<br/>[Kibana](https://localhost:5601)|user: elastic<br/>password: secret<br/>|
 
 ### Documentation
 
@@ -126,3 +124,6 @@ https://www.elastic.co/guide/en/kibana/8.4/docker.html
 
 #### 7.17
 
+https://www.elastic.co/guide/en/elasticsearch/reference/7.17/docker.html
+
+https://www.elastic.co/guide/en/kibana/7.17/docker.html
