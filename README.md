@@ -4,6 +4,11 @@
 
 Initialize single node elasticsearch docker container
 ```bash
+docker compose up --build
+```
+
+Initialize single node elasticsearch and kibana docker containers
+```bash
 docker compose -f docker-compose.single.yaml up --build
 ```
 
