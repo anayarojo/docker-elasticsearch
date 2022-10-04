@@ -9,7 +9,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
     container_name: elasticsearch
     volumes:
-      - ./storage/cluster/data/elasticsearch:/usr/share/elasticsearch/data
+      - ./storage/basic/elasticsearch:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
@@ -60,7 +60,7 @@ services:
       elasticsearch:
         condition: service_healthy
     volumes:
-      - ./storage/cluster/data/kibana:/usr/share/kibana/data
+      - ./storage/basic/kibana:/usr/share/kibana/data
     ports:
       - ${KIBANA_PORT}:5601
     environment:
