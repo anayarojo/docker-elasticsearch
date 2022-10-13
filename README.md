@@ -4,22 +4,44 @@
 
 Initialize single node elasticsearch docker container
 ```bash
-docker compose up --build
+docker compose up --build -d
 ```
 
 Initialize single node elasticsearch and kibana docker containers
 ```bash
-docker compose -f docker-compose.single.yaml up --build
+docker compose -f docker-compose.single.yaml up --build -d
 ```
 
 Initialize basic elasticsearch and kibana docker containers
 ```bash
-docker compose -f docker-compose.basic.yaml up --build
+docker compose -f docker-compose.basic.yaml up --build -d
 ```
 
 Initialize elasticsearch cluster and kibana docker containers
 ```bash
-docker compose -f docker-compose.cluster.yaml up --build
+docker compose -f docker-compose.cluster.yaml up --build -d
+```
+
+## Clean up
+
+Remove single node elasticsearch docker container
+```bash
+docker compose down -v
+```
+
+Remove single node elasticsearch and kibana docker containers
+```bash
+docker compose -f docker-compose.single.yaml down -v
+```
+
+Remove elasticsearch and kibana docker containers
+```bash
+docker compose -f docker-compose.basic.yaml down -v
+```
+
+Remove elasticsearch cluster and kibana docker containers
+```bash
+docker compose -f docker-compose.cluster.yaml down -v
 ```
 
 ## Useful request queries
