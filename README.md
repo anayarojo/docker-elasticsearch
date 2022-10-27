@@ -141,6 +141,41 @@ curl -X POST 'http://elastic:secret@localhost:9200/twitter/tweet/_search?pretty'
 |Basic|[Elasticsearch](http://elastic:secret@localhost:9200)<br/>[Kibana](http://localhost:5601)|user: elastic <br/> password: secret|
 |Cluster|[Elasticsearch](https://elastic:secret@localhost:9200)<br/>[Kibana](https://localhost:5601)|user: elastic<br/>password: secret<br/>|
 
+### Known errors
+
+**Error 1:**
+
+> bootstrap check failure [1] of [2]: memory locking requested for elasticsearch process but memory is not locked
+
+**Solution**
+
+Include the following configuration in elasticsearch node containers:
+
+```yaml
+    mem_limit: ${MEM_LIMIT}
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+```
+
+[Reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_prepare_the_environment)
+
+**Error 2:**
+
+> bootstrap check failure [2] of [2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+
+**Solution:**
+
+Run the following commands in your local computer:
+
+```bash
+wsl -d docker-desktop
+sysctl -w vm.max_map_count=262144
+```
+
+[Reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_windows_with_docker_desktop_wsl_2_backend)
+
 ### Documentation
 
 #### 8.4
