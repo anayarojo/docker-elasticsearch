@@ -147,6 +147,8 @@ services:
       memlock:
         soft: -1
         hard: -1
+    networks:
+      - elastic-net
     healthcheck:
       test:
         [
@@ -188,6 +190,8 @@ services:
       memlock:
         soft: -1
         hard: -1
+    networks:
+      - elastic-net
     healthcheck:
       test:
         [
